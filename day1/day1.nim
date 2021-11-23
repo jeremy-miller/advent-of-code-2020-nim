@@ -1,8 +1,8 @@
-import strutils
 import sequtils
+import strutils
 import std/strformat
 
-let data = readFile("day1/data1")
+let data = readFile("day1/data")
 let ns = data.splitLines.filterIt(it.len > 0).map(parseInt)
 
 block part1:
