@@ -1,6 +1,6 @@
 import sequtils
 import strutils
-import std/math, sequtils, strformat
+import std/math
 
 const
   rowChars = ['F', 'B']
@@ -8,7 +8,7 @@ const
 
 let boardingPasses = readFile("day5/data").splitLines.filterIt(it.len > 0)
 
-func binarySpacePartition(min, max: int, chr: char, chars: array[2, char]): tuple[newMin, newMax: int] =
+func binarySpacePartition(min, max: int, chr: char, chars: array[2, char]): tuple[newMin, newMax: int] {.raises: [].} =
   let mid = ceilDiv((max - min), 2)
   if chr == chars[0]:
     return (min, max - mid)
@@ -33,7 +33,7 @@ for boardingPass in boardingPasses:
   if seatID > largestSeatID:
     largestSeatID = seatID
 
-echo fmt"Part 1: {largestSeatID}"
+echo "Part 1: ", largestSeatID
 
 var seats = newSeq[bool](largestSeatID + 1)
 for boardingPass in boardingPasses:
@@ -54,5 +54,5 @@ for boardingPass in boardingPasses:
 
 for idx, value in seats:
   if not value and idx > 0 and idx < len(seats) and seats[idx-1] and seats[idx+1]:
-    echo fmt"Part 2: {idx}"
+    echo "Part 2: ", idx
     break

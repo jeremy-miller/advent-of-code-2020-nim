@@ -1,6 +1,5 @@
 import sequtils
 import strutils
-import std/strformat
 import std/strscans
 
 
@@ -23,7 +22,7 @@ for p in passwords:
   if count(p.password, p.chr) >= p.a and count(p.password, p.chr) <= p.b:
     count += 1
 
-echo fmt"Part 1: {count}"
+echo "Part 1: ", count
 
 count = 0
 for p in passwords:
@@ -31,4 +30,4 @@ for p in passwords:
      (p.password[p.a-1] != p.chr and p.password[p.b-1] == p.chr):
       count += 1
 
-echo fmt"Part 2: {count}"
+echo "Part 2: ", count

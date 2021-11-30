@@ -1,5 +1,4 @@
 import strutils
-import std/strformat
 import std/strscans
 
 let data = readFile("day4/data").splitLines()
@@ -23,11 +22,11 @@ for line in data:
       validPassports += 1
     passportFieldCount = requiredFieldsCount # reset for next passport
 
-echo fmt"Part 1: {validPassports}"
+echo "Part 1: ", validPassports
 
 const eyeColor = ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
 
-func validField(field: seq[string]): bool =
+func validField(field: seq[string]): bool {.raises: [].} =
   let
     fieldName = field[0]
     fieldValue = field[1]
@@ -93,4 +92,4 @@ for line in data:
       validPassports += 1
     passportFieldCount = requiredFieldsCount # reset for next passport
 
-echo fmt"Part 2: {validPassports}"
+echo "Part 2: ", validPassports
